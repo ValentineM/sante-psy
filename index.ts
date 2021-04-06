@@ -45,16 +45,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(flash());
 app.use(cookieParser(config.secret));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views')); // the code is running in directory "dist", not root
 app.use('/static', express.static('static'));
 app.use('/static/gouvfr', express.static(
-  path.join(__dirname, 'node_modules/@gouvfr/all/dist'))
+  path.join(__dirname, '../node_modules/@gouvfr/all/dist')) // the code is running in directory "dist", not root
 );
 app.use('/static/jquery', express.static(
-  path.join(__dirname, 'node_modules/jquery/dist'))
+  path.join(__dirname, '../node_modules/jquery/dist')) // the code is running in directory "dist", not root
 );
 app.use('/static/tabulator-tables', express.static(
-  path.join(__dirname, 'node_modules/tabulator-tables/dist'))
+  path.join(__dirname, '../node_modules/tabulator-tables/dist')) // the code is running in directory "dist", not root
 );
 
 // This session cookie (connect.sid) is only used for displaying the flash messages.
